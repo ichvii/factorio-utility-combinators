@@ -6,8 +6,8 @@ local unlocks = {
   {type = "unlock-recipe", recipe = "research-combinator"},
   {type = "unlock-recipe", recipe = "large-combinator"},
   {type = "unlock-recipe", recipe = "alphabet-combinator"},
-  {type = "unlock-recipe", recipe = "stacksize+-combinator"},
-  {type = "unlock-recipe", recipe = "stacksize--combinator"},
+  {type = "unlock-recipe", recipe = "stacksizep-combinator"},
+  {type = "unlock-recipe", recipe = "stacksizem-combinator"},
 }
 
 if data.raw["technology"]["circuit-network-2"] then
