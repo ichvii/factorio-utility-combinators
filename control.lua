@@ -121,6 +121,24 @@ function onBuilt(event)
     global.researchcc[entity.unit_number] = {entity=entity,control=control}
     control.parameters={enabled=true,parameters=global.researchframe[entity.force.name] or {}}
   end
+  elseif entity.name == "alphabet-combinator" then
+    entity.operable = false
+    local control = entity.get_or_create_control_behavior()
+    global.alphabetcc[entity.unit_number] = {entity=entity,control=control}
+    control.parameters={enabled=true,parameters=global.alphabetframe or {}}
+  end
+  elseif entity.name == "research-combinator" then
+    entity.operable = false
+    local control = entity.get_or_create_control_behavior()
+    global.stackpcc[entity.unit_number] = {entity=entity,control=control}
+    control.parameters={enabled=true,parameters=global.stackpframe or {}}
+  end
+  elseif entity.name == "research-combinator" then
+    entity.operable = false
+    local control = entity.get_or_create_control_behavior()
+    global.stackmcc[entity.unit_number] = {entity=entity,control=control}
+    control.parameters={enabled=true,parameters=global.stackmframe or {}}
+  end  
 end
 
 local function onInit()
@@ -145,7 +163,24 @@ local function onInit()
     researchframe = {
       --[force.name] = ccdata,
     },
-
+    alphabetcc= {
+      --[unit_number] = {entity, control},
+    },
+    alphabetframe={ 
+      -- = ccdata
+    },
+   stackpcc= {
+      --[unit_number] = {entity, control},
+    },
+    stackpframe={ 
+      -- = ccdata
+    },
+    stackmcc= {
+      --[unit_number] = {entity, control},
+    },
+    stackmframe={ 
+      -- = ccdata
+    },
   }
 
   -- bonus combinator
@@ -163,13 +198,37 @@ local function onInit()
   -- research combinator
   UpdateResearch()
 
+  --alphabet-combinator
+
+  for _, s in pairs(game.virtual_signal_prototypes) do
+    alphabetframe[#alphabetframe+1]= {index = #alphabetframe+1, count= #alphabetframe+1, signal = {name=s.name, type="virtual"}}
+  end
+  for _, i in pairs(game.item_prototypes) do
+    alphabetframe[#alphabetframe+1]= {index = #alphabetframe+1, count= #alphabetframe+1, signal = {name=i.name, type="item"}}
+  end
+  for _, f in pairs(game.fluid_prototypes) do
+    alphabetframe[#alphabetframe+1]= {index = #alphabetframe+1, count= #alphabetframe+1, signal = {name=f.name, type="fuid"}}
+  end
+  
+  --stacksize+-combinator
+
+  for _, i in pairs(game.item_prototypes) do
+    stackpframe[#stackpframe+1]= {index = #stackpframe+1, count= i.stack_size, signal = {name=i.name, type="item"}}
+  end
+
+  --stacksize--combinator
+
+  for _, i in pairs(game.item_prototypes) do
+    stackmframe[#stackmframe+1]= {index = #stackmframe+1, count= 100000 / i.stack_size, signal = {name=i.name, type="item"}}
+  end
+
   -- index existing combinators (init and config changed to capture from deprecated mods as well)
   -- and re-index the world
   for _,surf in pairs(game.surfaces) do
     -- re-index all nixies. non-nixie lamps will be ignored by onPlaceEntity
     for _,ent in pairs(
       surf.find_entities_filtered{name =
-      {"bonus-combinator", "location-combinator", "player-combinator", "research-combinator",}}
+      {"bonus-combinator", "location-combinator", "player-combinator", "research-combinator", "alphabet-combinator", "stacksize+-combinator", "stacksize--combinator" }}
     ) do
       onBuilt({created_entity=ent})
     end
