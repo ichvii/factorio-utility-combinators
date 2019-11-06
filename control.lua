@@ -158,7 +158,7 @@ local function onInit()
       --[force.name] = ccdata,
     },
     alphabetframe={ 
-      {index=1,count=0,signal={name="signal-grey",type="virtual"}
+      {index=1,count=0,signal={name="signal-grey",type="virtual"}}
     },
     stackpframe={ 
       {index=1,count=0,signal={name="signal-grey",type="virtual"}}
