@@ -54,4 +54,37 @@ data:extend{
     },
     result="large-combinator",
   },
+  {
+    type = "recipe",
+    name = "alphabet-combinator",
+    enabled = "false",
+    ingredients =
+    {
+      {"constant-combinator", 1},
+      {"electronic-circuit", 1},
+    },
+    result="alphabet-combinator",
+  },
+  {
+    type = "recipe",
+    name = "stacksize+-combinator",
+    enabled = "false",
+    ingredients =
+    {
+      {"constant-combinator", 1},
+      {"electronic-circuit", 1},
+    },
+    result="stacksize+-combinator",
+  },
+  {
+    type = "recipe",
+    name = "stacksize--combinator",
+    enabled = "false",
+    ingredients =
+    {
+      {"constant-combinator", 1},
+      {"electronic-circuit", 1},
+    },
+    result="stacksize--combinator",
+  },
 }
