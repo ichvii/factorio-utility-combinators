@@ -67,24 +67,24 @@ data:extend{
   },
   {
     type = "recipe",
-    name = "stacksize+-combinator",
+    name = "stacksizep-combinator",
     enabled = "false",
     ingredients =
     {
       {"constant-combinator", 1},
       {"electronic-circuit", 1},
     },
-    result="stacksize+-combinator",
+    result="stacksizep-combinator",
   },
   {
     type = "recipe",
-    name = "stacksize--combinator",
+    name = "stacksizem-combinator",
     enabled = "false",
     ingredients =
     {
       {"constant-combinator", 1},
       {"electronic-circuit", 1},
     },
-    result="stacksize--combinator",
+    result="stacksizem-combinator",
   },
 }
