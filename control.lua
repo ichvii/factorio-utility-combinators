@@ -127,13 +127,13 @@ function onBuilt(event)
     global.alphabetcc[entity.unit_number] = {entity=entity,control=control}
     control.parameters={enabled=true,parameters=global.alphabetframe or {}}
   end
-  elseif entity.name == "research-combinator" then
+  elseif entity.name == "stacksizep-combinator" then
     entity.operable = false
     local control = entity.get_or_create_control_behavior()
     global.stackpcc[entity.unit_number] = {entity=entity,control=control}
     control.parameters={enabled=true,parameters=global.stackpframe or {}}
   end
-  elseif entity.name == "research-combinator" then
+  elseif entity.name == "stacksizem-combinator" then
     entity.operable = false
     local control = entity.get_or_create_control_behavior()
     global.stackmcc[entity.unit_number] = {entity=entity,control=control}
@@ -210,13 +210,13 @@ local function onInit()
     alphabetframe[#alphabetframe+1]= {index = #alphabetframe+1, count= #alphabetframe+1, signal = {name=f.name, type="fuid"}}
   end
   
-  --stacksize+-combinator
+  --stacksizep-combinator
 
   for _, i in pairs(game.item_prototypes) do
     stackpframe[#stackpframe+1]= {index = #stackpframe+1, count= i.stack_size, signal = {name=i.name, type="item"}}
   end
 
-  --stacksize--combinator
+  --stacksizem-combinator
 
   for _, i in pairs(game.item_prototypes) do
     stackmframe[#stackmframe+1]= {index = #stackmframe+1, count= 100000 / i.stack_size, signal = {name=i.name, type="item"}}
@@ -228,7 +228,7 @@ local function onInit()
     -- re-index all nixies. non-nixie lamps will be ignored by onPlaceEntity
     for _,ent in pairs(
       surf.find_entities_filtered{name =
-      {"bonus-combinator", "location-combinator", "player-combinator", "research-combinator", "alphabet-combinator", "stacksize+-combinator", "stacksize--combinator" }}
+      {"bonus-combinator", "location-combinator", "player-combinator", "research-combinator", "alphabet-combinator", "stacksizep-combinator", "stacksizem-combinator" }}
     ) do
       onBuilt({created_entity=ent})
     end
