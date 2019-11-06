@@ -120,19 +120,16 @@ function onBuilt(event)
     local control = entity.get_or_create_control_behavior()
     global.researchcc[entity.unit_number] = {entity=entity,control=control}
     control.parameters={enabled=true,parameters=global.researchframe[entity.force.name] or {}}
-  end
   elseif entity.name == "alphabet-combinator" then
     entity.operable = false
     local control = entity.get_or_create_control_behavior()
     global.alphabetcc[entity.unit_number] = {entity=entity,control=control}
     control.parameters={enabled=true,parameters=global.alphabetframe or {}}
-  end
   elseif entity.name == "stacksizep-combinator" then
     entity.operable = false
     local control = entity.get_or_create_control_behavior()
     global.stackpcc[entity.unit_number] = {entity=entity,control=control}
     control.parameters={enabled=true,parameters=global.stackpframe or {}}
-  end
   elseif entity.name == "stacksizem-combinator" then
     entity.operable = false
     local control = entity.get_or_create_control_behavior()
