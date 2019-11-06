@@ -131,7 +131,7 @@ function onBuilt(event)
   elseif entity.name == "stacksizem-combinator" then
     entity.operable = false
     local control = entity.get_or_create_control_behavior()
-    control.parameters={enabled=true,parameters=global.stackmframe or {}}
+    control.parameters={enabled=true,parameters=global.stackmframe}
   end  
 end
 
