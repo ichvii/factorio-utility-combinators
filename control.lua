@@ -119,7 +119,7 @@ function onBuilt(event)
     entity.operable = false
     local control = entity.get_or_create_control_behavior()
     global.researchcc[entity.unit_number] = {entity=entity,control=control}
-    control.parameters={enabled=true,parameters=global.researchframe[entity.force.name] or {}}
+    control.parameters={enabled=true,parameters=global.researchframe or {}}
   elseif entity.name == "alphabet-combinator" then
     entity.operable = false
     local control = entity.get_or_create_control_behavior()
@@ -131,7 +131,7 @@ function onBuilt(event)
   elseif entity.name == "stacksizem-combinator" then
     entity.operable = false
     local control = entity.get_or_create_control_behavior()
-    control.parameters={enabled=true,parameters=global.stackmframe}
+    control.parameters={enabled=true,parameters=global.stackmframe or {}}
   end  
 end
 
@@ -181,30 +181,29 @@ local function onInit()
   UpdateResearch()
 
   --alphabet-combinator
-  for forcename,force in pairs(game.forces) do
     
     for _, s in pairs(game.virtual_signal_prototypes) do
-      alphabetframe[forcename][#alphabetframe+1 or 1]= {index = #alphabetframe+1, count= #alphabetframe+1, signal = {name=s.name, type="virtual"}}
+      global.alphabetframe[#global.alphabetframe+1 or 1]= {index = #global.alphabetframe+1, count= #global.alphabetframe+1, signal = {name=s.name, type="virtual"}}
     end
     for _, i in pairs(game.item_prototypes) do
-      alphabetframe[forcename][#alphabetframe+1 or 1]= {index = #alphabetframe+1, count= #alphabetframe+1, signal = {name=i.name, type="item"}}
+      global.alphabetframe[#global.alphabetframe+1 or 1]= {index = #global.alphabetframe+1, count= #global.alphabetframe+1, signal = {name=i.name, type="item"}}
     end
     for _, f in pairs(game.fluid_prototypes) do
-      alphabetframe[forcename][#alphabetframe+1 or 1]= {index = #alphabetframe+1, count= #alphabetframe+1, signal = {name=f.name, type="fuid"}}
+      global.alphabetframe[#alphabetframe+1 or 1]= {index = #global.alphabetframe+1, count= #global.alphabetframe+1, signal = {name=f.name, type="fuid"}}
     end
     
     --stacksizep-combinator
   
     for _, i in pairs(game.item_prototypes) do
-      stackpframe[forcename][#stackpframe+1 or 1]= {index = #stackpframe+1, count= i.stack_size, signal = {name=i.name, type="item"}}
+      global.stackpframe[#global.stackpframe+1 or 1]= {index = #global.stackpframe+1, count= i.stack_size, signal = {name=i.name, type="item"}}
     end
 
     --stacksizem-combinator
 
     for _, i in pairs(game.item_prototypes) do
-      stackmframe[forcename][#stackmframe+1 or 1]= {index = #stackmframe+1, count= 100000 / i.stack_size, signal = {name=i.name, type="item"}}
+      global.stackmframe[#stackmframe+1 or 1]= {index = #global.stackmframe+1, count= 100000 / i.stack_size, signal = {name=i.name, type="item"}}
     end
-  end
+
 
   -- index existing combinators (init and config changed to capture from deprecated mods as well)
   -- and re-index the world
