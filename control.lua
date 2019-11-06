@@ -123,17 +123,14 @@ function onBuilt(event)
   elseif entity.name == "alphabet-combinator" then
     entity.operable = false
     local control = entity.get_or_create_control_behavior()
-    global.alphabetcc[entity.unit_number] = {entity=entity,control=control}
     control.parameters={enabled=true,parameters=global.alphabetframe or {}}
   elseif entity.name == "stacksizep-combinator" then
     entity.operable = false
     local control = entity.get_or_create_control_behavior()
-    global.stackpcc[entity.unit_number] = {entity=entity,control=control}
     control.parameters={enabled=true,parameters=global.stackpframe or {}}
   elseif entity.name == "stacksizem-combinator" then
     entity.operable = false
     local control = entity.get_or_create_control_behavior()
-    global.stackmcc[entity.unit_number] = {entity=entity,control=control}
     control.parameters={enabled=true,parameters=global.stackmframe or {}}
   end  
 end
@@ -160,20 +157,11 @@ local function onInit()
     researchframe = {
       --[force.name] = ccdata,
     },
-    alphabetcc= {
-      --[unit_number] = {entity, control},
-    },
     alphabetframe={ 
       -- = ccdata
     },
-   stackpcc= {
-      --[unit_number] = {entity, control},
-    },
     stackpframe={ 
       -- = ccdata
-    },
-    stackmcc= {
-      --[unit_number] = {entity, control},
     },
     stackmframe={ 
       -- = ccdata
