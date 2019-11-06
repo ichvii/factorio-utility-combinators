@@ -158,13 +158,10 @@ local function onInit()
       --[force.name] = ccdata,
     },
     alphabetframe={ 
-      {index=1,count=1,signal={name="signal-grey",type="virtual"}}
     },
     stackpframe={ 
-      {index=1,count=0,signal={name="signal-grey",type="virtual"}}
     },
     stackmframe={ 
-      {index=1,count=0,signal={name="signal-grey",type="virtual"}}
     },
   }
 
@@ -184,27 +181,29 @@ local function onInit()
   UpdateResearch()
 
   --alphabet-combinator
-
-  for _, s in pairs(game.virtual_signal_prototypes) do
-    alphabetframe[#alphabetframe+1]= {index = #alphabetframe+1, count= #alphabetframe+1, signal = {name=s.name, type="virtual"}}
-  end
-  for _, i in pairs(game.item_prototypes) do
-    alphabetframe[#alphabetframe+1]= {index = #alphabetframe+1, count= #alphabetframe+1, signal = {name=i.name, type="item"}}
-  end
-  for _, f in pairs(game.fluid_prototypes) do
-    alphabetframe[#alphabetframe+1]= {index = #alphabetframe+1, count= #alphabetframe+1, signal = {name=f.name, type="fuid"}}
-  end
+  for forcename,force in pairs(game.forces) do
+    
+    for _, s in pairs(game.virtual_signal_prototypes) do
+      alphabetframe[forcename][#alphabetframe+1 or 1]= {index = #alphabetframe+1, count= #alphabetframe+1, signal = {name=s.name, type="virtual"}}
+    end
+    for _, i in pairs(game.item_prototypes) do
+      alphabetframe[forcename][#alphabetframe+1 or 1]= {index = #alphabetframe+1, count= #alphabetframe+1, signal = {name=i.name, type="item"}}
+    end
+    for _, f in pairs(game.fluid_prototypes) do
+      alphabetframe[forcename][#alphabetframe+1 or 1]= {index = #alphabetframe+1, count= #alphabetframe+1, signal = {name=f.name, type="fuid"}}
+    end
+    
+    --stacksizep-combinator
   
-  --stacksizep-combinator
+    for _, i in pairs(game.item_prototypes) do
+      stackpframe[forcename][#stackpframe+1 or 1]= {index = #stackpframe+1, count= i.stack_size, signal = {name=i.name, type="item"}}
+    end
 
-  for _, i in pairs(game.item_prototypes) do
-    stackpframe[#stackpframe+1]= {index = #stackpframe+1, count= i.stack_size, signal = {name=i.name, type="item"}}
-  end
+    --stacksizem-combinator
 
-  --stacksizem-combinator
-
-  for _, i in pairs(game.item_prototypes) do
-    stackmframe[#stackmframe+1]= {index = #stackmframe+1, count= 100000 / i.stack_size, signal = {name=i.name, type="item"}}
+    for _, i in pairs(game.item_prototypes) do
+      stackmframe[forcename][#stackmframe+1 or 1]= {index = #stackmframe+1, count= 100000 / i.stack_size, signal = {name=i.name, type="item"}}
+    end
   end
 
   -- index existing combinators (init and config changed to capture from deprecated mods as well)
