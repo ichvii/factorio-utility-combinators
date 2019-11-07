@@ -94,7 +94,6 @@ function onForceResearchChange(event)
 end
 
 function onBuilt(event)
-      game.player.print(#global.alphabetframe)
   local entity=event.created_entity
   if entity.name == "bonus-combinator" then
     entity.operable = false
