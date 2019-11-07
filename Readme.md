@@ -31,3 +31,15 @@ Outputs the science packs required for the current research, the number of reser
 ## Large Combinator
 
 A normal constant combinator with 1000 slots for signals.
+
+## Alphabet Combinator
+
+Provides order.
+
+## Direct Stacksize Combinator
+
+Directly offers the stack size of every item.
+
+## Inverse Stacksize Combinator
+
+Does the Inverse, but 100k times more.
