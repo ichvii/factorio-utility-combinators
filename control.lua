@@ -182,9 +182,9 @@ local function onInit()
 
   --alphabet-combinator
     
-    --for _, s in pairs(game.virtual_signal_prototypes) do
-  --    global.alphabetframe[#global.alphabetframe+1 or 1]= {index = #global.alphabetframe+1, count= #global.alphabetframe+1, signal = {name=s.name, type="virtual"}}
-  --  end
+    for _, s in pairs(game.virtual_signal_prototypes) do
+      global.alphabetframe[#global.alphabetframe+1 or 1]= {index = #global.alphabetframe+1, count= #global.alphabetframe+1, signal = {name=s.name, type="virtual"}}
+    end
     for _, i in pairs(game.item_prototypes) do
       global.alphabetframe[#global.alphabetframe+1 or 1]= {index = #global.alphabetframe+1, count= #global.alphabetframe+1, signal = {name=i.name, type="item"}}
     end
