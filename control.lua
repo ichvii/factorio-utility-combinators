@@ -94,7 +94,6 @@ function onForceResearchChange(event)
 end
 
 function onBuilt(event)
-  onInit()
   local entity=event.created_entity
   if entity.name == "bonus-combinator" then
     entity.operable = false
