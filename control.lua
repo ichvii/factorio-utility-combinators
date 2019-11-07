@@ -94,6 +94,7 @@ function onForceResearchChange(event)
 end
 
 function onBuilt(event)
+      game.player.print(#global.alphabetframe)
   local entity=event.created_entity
   if entity.name == "bonus-combinator" then
     entity.operable = false
@@ -192,7 +193,7 @@ local function onInit()
       global.alphabetframe[#global.alphabetframe+1 or 1]= {index = #global.alphabetframe+1, count= #global.alphabetframe+1, signal = {name=f.name, type="fluid"}}
     end
   
-    game.player.print(#global.alphabetframe)
+
     
     --stacksizep-combinator
   
