@@ -191,6 +191,8 @@ local function onInit()
     for _, f in pairs(game.fluid_prototypes) do
       global.alphabetframe[#global.alphabetframe+1 or 1]= {index = #global.alphabetframe+1, count= #global.alphabetframe+1, signal = {name=f.name, type="fluid"}}
     end
+  
+    game.player.print(#global.alphabetframe)
     
     --stacksizep-combinator
   
