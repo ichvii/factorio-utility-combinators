@@ -1,11 +1,11 @@
 {
-  "name": "utility-combinators",
-  "version": "0.17.1",
+  "name": "utility-combinators+",
+  "version": "0.17.0",
   "factorio_version": "0.17",
-  "title": "Utility Combinators",
-  "author": "justarandomgeek",
+  "title": "Utility Combinators+",
+  "author": "ichvii",
   "homepage": "",
-  "contact": "justarandomgeek@gmail.com",
-  "description": "A set of general utility cominators. Includes: Location Combinators, Bonus Combinators, Player Combinators, Research Combinators",
+  "contact": "",
+  "description": "A set of general utility cominators. Includes: Location Combinators, Bonus Combinators, Player Combinators, Research Combinators by justarandomgeek and Large Combinator, Alphabet Combinator, Direct and Inverse Stacksize Combinator by ichvii",
   "dependencies": ["base >= 0.17.0", "?signalstrings >= 0.17.0", "!bonus-combinator", "!location-combinator", "!player-combinator", "!research-combinator" ]
 }
