@@ -2,7 +2,7 @@
 
 Based on Utility Combinators by justarandomgeek.
 
-A set of general utility cominators. Includes: Location Combinators, Bonus Combinators, Player Combinators, Research Combinators
+A set of general utility combinators. Includes: Location Combinators, Bonus Combinators, Player Combinators, Research Combinators
 
 Added: Large Combinator, Alphabet Combinator, Direct Stacksize Combinator, Inverse Stacksize combinator
 
