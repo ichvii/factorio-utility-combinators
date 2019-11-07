@@ -189,7 +189,7 @@ local function onInit()
       global.alphabetframe[#global.alphabetframe+1 or 1]= {index = #global.alphabetframe+1, count= #global.alphabetframe+1, signal = {name=i.name, type="item"}}
     end
     for _, f in pairs(game.fluid_prototypes) do
-      global.alphabetframe[#alphabetframe+1 or 1]= {index = #global.alphabetframe+1, count= #global.alphabetframe+1, signal = {name=f.name, type="fuid"}}
+      global.alphabetframe[#global.alphabetframe+1 or 1]= {index = #global.alphabetframe+1, count= #global.alphabetframe+1, signal = {name=f.name, type="fuid"}}
     end
     
     --stacksizep-combinator
@@ -201,7 +201,7 @@ local function onInit()
     --stacksizem-combinator
 
     for _, i in pairs(game.item_prototypes) do
-      global.stackmframe[#stackmframe+1 or 1]= {index = #global.stackmframe+1, count= 100000 / i.stack_size, signal = {name=i.name, type="item"}}
+      global.stackmframe[#global.stackmframe+1 or 1]= {index = #global.stackmframe+1, count= 100000 / i.stack_size, signal = {name=i.name, type="item"}}
     end
 
 
