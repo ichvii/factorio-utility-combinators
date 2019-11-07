@@ -183,7 +183,7 @@ local function onInit()
   --alphabet-combinator
     
     for _, sig in pairs(game.virtual_signal_prototypes) do
-      if (sig.name!="signal-everything" and sig.name!="signal-anything" and sig.name!="signal-each") then
+      if (sig.name~="signal-everything" and sig.name~="signal-anything" and sig.name~="signal-each") then
         global.alphabetframe[#global.alphabetframe+1 or 1]= {index = #global.alphabetframe+1, count= #global.alphabetframe+1, signal = {name=sig.name, type="virtual"}}
       end
     end
