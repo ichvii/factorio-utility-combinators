@@ -1,49 +1,22 @@
-# Utility Combinators+
+# Other Utility Combinators
 
 Based on Utility Combinators by justarandomgeek.
 
-A set of general utility combinators. Includes: Location Combinators, Bonus Combinators, Player Combinators, Research Combinators
-
-Added: Large Combinator, Alphabet Combinator, Direct Stacksize Combinator, Inverse Stacksize combinator
+A different set of general utility combinators. Includes: Large Combinator, Alphabet Combinator, Direct Stacksize Combinator, Inverse Stacksize combinator
 
 
-## Bonus Combinator
-Outputs various force bonus levels:
-
-|Bonus                                        |Signal    |
-|---------------------------------------------|----------|
-|force.worker_robots_storage_bonus            | signal-R |
-|force.inserter_stack_size_bonus              | signal-I |
-|force.stack_inserter_capacity_bonus          | signal-J |
-|force.character_logistic_slot_count          | signal-L |
-|force.character_trash_slot_count             | signal-T |
-|force.quickbar_count                         | signal-Q |
-|force.maximum_following_robot_count          | signal-F |
-|force.mining_drill_productivity_bonus * 100  | signal-P |
-
-## Location Combinator
-
-Outputs its location (signal-X and signal-Y) and the index of teh current surface (signal-Z).
-
-## Player Combinator
-
-With no input, outputs the total player count (signal-blue) and total online player count (signal-green). With input signal-grey=index, outputs that player's online (signal-green) and admin (signal-red) status, and if the Signal Strings Library is isntalled, the players name.
-
-## Research Combinator
-
-Outputs the science packs required for the current research, the number of reserach cycles (signal-black), and the current progress in percent (signal-grey). If the Signal Strings Library is installed, also outputs the name of the current research.
 
 ## Large Combinator
 
-A normal constant combinator with 1000 slots for signals.
+A normal constant combinator with 10000 slots for signals.
 
 ## Alphabet Combinator
 
-Provides order.
+Provides order. It outputs each signal in the game with a unique integer. Starts at signal-0 with 1. Supports all items/fluids/signals added by mods.
 
 ## Direct Stacksize Combinator
 
-Directly offers the stack size of every item.
+Directly offers the stack size of every item. Supports all modded items.
 
 ## Inverse Stacksize Combinator
 
