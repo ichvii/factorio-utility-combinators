@@ -1,9 +1,5 @@
--- Common Technology with some of Optera's simple combinator mods
+-- Common Technology with some of Optera's simple combinator mods and with justarandomgeek's Utility Combinators
 local unlocks = {
-  {type = "unlock-recipe", recipe = "bonus-combinator"},
-  {type = "unlock-recipe", recipe = "location-combinator"},
-  {type = "unlock-recipe", recipe = "player-combinator"},
-  {type = "unlock-recipe", recipe = "research-combinator"},
   {type = "unlock-recipe", recipe = "large-combinator"},
   {type = "unlock-recipe", recipe = "alphabet-combinator"},
   {type = "unlock-recipe", recipe = "stacksizep-combinator"},
